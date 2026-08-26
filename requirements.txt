@@ -1,0 +1,10 @@
+# PotPlayer Subtitle Translate - Argos Dependencies
+
+# Translation engine
+argostranslate==1.11.0
+
+# Web framework for translation API
+flask>=2.0.0
+
+# Language detection
+langdetect>=1.0.9
