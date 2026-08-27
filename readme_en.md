@@ -148,7 +148,7 @@ GET /api/status
 ## Acknowledgments
 
 - [Argos Translate](https://github.com/argosopentech/argos-translate) - Open-source machine translation library
-- [PotPlayer](https://potplayer.daum.net/) - Multimedia player
+- [PotPlayer](https://potplayer.tv) - Multimedia player
 - Thanks to all contributors!
 
 ## License

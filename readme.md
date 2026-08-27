@@ -148,7 +148,7 @@ GET /api/status
 ## 致谢
 
 - [Argos Translate](https://github.com/argosopentech/argos-translate) - 开源机器翻译库
-- [PotPlayer](https://potplayer.daum.net/) - 多功能媒体播放器
+- [PotPlayer](https://potplayer.tv) - 多功能媒体播放器
 - 感谢所有贡献者！
 
 ## 许可证
