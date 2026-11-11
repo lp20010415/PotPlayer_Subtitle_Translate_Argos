@@ -4,6 +4,8 @@ Arabic, Azerbaijani, Basque, Catalan, Chinese, Czech, Danish, Dutch, English, Es
 Greek, Hebrew, Hindi, Hungarian, Indonesian, Irish, Italian, Japanese, Kyrgyz, Korean, Malay, Persian, Polish, Portuguese, 
 Portuguese (Brazil), Russian, Slovak, Spanish, Swahili, Swedish, Turkish, Ukrainian, Urdu
 """
+import os
+os.environ["ARGOS_PACKAGES_DIR"] = r"C:\argos_packages"
 
 from collections import OrderedDict
 from flask import Flask, request, jsonify
@@ -465,25 +467,6 @@ def handle_translation_request(from_code, to_code, text):
         }
 
     return translate_once(src, dst, text)
-    # try:
-    #     translated_text = translate_text(from_code, to_code, text)
-    # except Exception as e:
-    #     print(f"翻译异常: {e}")
-    #     return jsonify({
-    #         "message": str(e),
-    #         "status": "error"
-    #     })
-    #
-    # if translated_text is not None:
-    #     return jsonify({
-    #         'message': translated_text,
-    #         'status': 'success'
-    #     })
-    # else:
-    #     return jsonify({
-    #         'message': f'无法找到从 {from_code} 到 {to_code} 的翻译器',
-    #         'status': 'error'
-    #     })
 
 
 @app.route('/api/translate', methods=['GET'])

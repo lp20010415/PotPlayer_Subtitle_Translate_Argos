@@ -1,5 +1,8 @@
+import os
+os.environ["ARGOS_PACKAGES_DIR"] = r"C:\argos_packages"
 
 import argostranslate.package
+import argostranslate.translate
 
 """ 
 请根据index.json(https://github.com/argosopentech/argospm-index/blob/main/index.json)增删语言包
@@ -11,6 +14,10 @@ to_name 是目标语言英文
 ArgosAI，如果在上面没有找到直转，也支持跨语言翻译(例如: 中文转俄文，但实际上是中文转英文 英文转中文)，但是翻译质量会下降
 
 """
+
+# 防止windows中文用户名导致模型错误
+if not os.path.exists(r"C:\argos_packages"):
+    os.mkdir(r"C:\argos_packages")
 
 from_code = "en"
 to_codes = [
@@ -49,7 +56,6 @@ installed_packages = argostranslate.package.get_installed_packages()
 def download_and_install_package(f_code, t_code):
     global available_packages, installed_packages
 
-
     if next(
         filter(lambda p: p.from_code == f_code and p.to_code == t_code, installed_packages), None
     ):
@@ -71,9 +77,11 @@ def download_and_install_package(f_code, t_code):
     else:
         return False
 
-# 
-# for t in to_codes:
-#     download_and_install_package(from_code, t)
+
+argostranslate.translate.get_installed_languages.cache_clear()
+# 英语转其他
+for t in to_codes:
+    download_and_install_package(from_code, t)
 # 转英语
 for t in to_codes:
     download_and_install_package(t, from_code)
